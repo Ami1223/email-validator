@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
             errorMessage.textContent = "Niepoprawny adres email.";
             errorMessage.style.color = "red";
         } else {
-            errorMessage.textContent = "";
+            errorMessage.textContent = "Poprawny adres email!";
+            errorMessage.style.color = "green";
         }
     });
 });
