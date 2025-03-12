@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", function (event) {
         const email = emailInput.value;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if (!emailPattern.test(email)) {
-            event.preventDefault(); // Zapobiega wysłaniu formularza
+
+        const atIndex = email.indexOf("@");
+        const dotIndex = email.indexOf(".", atIndex);
+
+        if (atIndex === -1 || dotIndex === -1 || atIndex > dotIndex) {
+            event.preventDefault();
             errorMessage.textContent = "Niepoprawny adres email.";
             errorMessage.style.color = "red";
         } else {
@@ -17,3 +19,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
